@@ -1,0 +1,13 @@
+site_name: fxdatascraper
+site_description: TODO
+site_author: Josh Weir
+repo_url: https://github.com/joshweir/fx-economic-data-scraper
+
+theme: readthedocs
+
+pages:
+- Home: index.md
+- About:
+  - Release Notes: about/changelog.md
+  - Contributing: about/contributing.md
+  - License: about/license.md
