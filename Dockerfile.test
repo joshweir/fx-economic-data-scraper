@@ -1,0 +1,41 @@
+#docker build -t fxdata-python-test -f Dockerfile.python.test .
+#docker container rm fxdata-python-test-instance
+#docker run -v /Users/josh/fx-economic-data-scraper:/code --name fxdata-python-test-instance -it fxdata-python-test
+FROM python:3.6.2
+#ENV PYTHONUNBUFFERED 1
+
+# 1. install pipenv and create an entrypoint
+#RUN pip install pipenv
+#RUN pip install --upgrade setuptools
+
+#COPY entrypoint.sh /
+#RUN echo "#!/bin/bash" >> /entrypoint.sh && \
+#    echo "venvapp=\`pipenv --venv\`" >> /entrypoint.sh && \
+#    echo "venvactivate=$(echo \"/bin/activate\" | awk -v var=\"$venvapp\" '{print var$1}')" >> /entrypoint.sh && \
+#    echo "echo $venvactivate | source /dev/stdin" >> /entrypoint.sh && \
+#    echo 'exec "$@"' >> /entrypoint.sh && \
+#    chmod +x /entrypoint.sh
+#RUN chmod +x /entrypoint.sh
+#{ echo "source "; pipenv --venv; } | tr "\n" " "
+#ENTRYPOINT ["/entrypoint.sh"]
+#CMD ["bash"]
+
+# 2. install system level dependencies
+# <-- system level dependencies here
+
+# 3. don't run as root
+#RUN groupadd --gid 1001 app
+#RUN useradd --uid 1001 --gid app --home /app app
+#RUN mkdir /app && \
+#    chown app.app /app
+#USER app
+#COPY . /app/app
+#WORKDIR /app/app
+
+ADD . /code
+WORKDIR /code
+RUN pip install -r requirements.txt
+
+#RUN pipenv install --dev
+CMD ["/bin/bash"]
+#CMD ["pipenv", "shell"]

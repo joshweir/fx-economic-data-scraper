@@ -1,0 +1,17 @@
+pytest
+pytest-describe
+pytest-expecter
+pytest-cov
+pytest-random
+pytest-catchlog
+coverage
+coverage.space
+wheel
+pyinstaller
+twine
+sniffer
+pylint
+pycodestyle
+pydocstyle
+tendo
+click
