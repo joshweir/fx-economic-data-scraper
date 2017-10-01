@@ -1,6 +1,7 @@
 #docker build -t fxdata-python-test -f Dockerfile.python.test .
 #docker container rm fxdata-python-test-instance
 #docker run -v /Users/josh/fx-economic-data-scraper:/code --name fxdata-python-test-instance -it fxdata-python-test
+#then run ptw to start pytest-watch
 FROM python:3.6.2
 #ENV PYTHONUNBUFFERED 1
 
